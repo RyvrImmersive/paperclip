@@ -11,8 +11,13 @@ restartPolicyLimit = 3
 startCommand = "node --import ./server/node_modules/tsx/dist/loader.mjs server/dist/index.js"
 
 [environment]
+HOST = "0.0.0.0"
 PORT = "3100"
 SERVE_UI = "true"
-PAPERCLIP_DEPLOYMENT_MODE = "local_trusted"
+PAPERCLIP_HOME = "/paperclip"
+PAPERCLIP_DEPLOYMENT_MODE = "authenticated"
 PAPERCLIP_DEPLOYMENT_EXPOSURE = "public"
 PAPERCLIP_PUBLIC_URL = "${PAPERCLIP_PUBLIC_URL}"
+BETTER_AUTH_SECRET = "${BETTER_AUTH_SECRET}"
+OPENAI_API_KEY = "${OPENAI_API_KEY:-}"
+ANTHROPIC_API_KEY = "${ANTHROPIC_API_KEY:-}"
