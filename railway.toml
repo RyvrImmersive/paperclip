@@ -1,0 +1,16 @@
+[build]
+builder = "dockerfile"
+
+[deploy]
+healthcheckPath = "/"
+healthcheckTimeout = 120
+restartPolicyType = "on_failure"
+restartPolicyLimit = 3
+startCommand = "node --import ./server/node_modules/tsx/dist/loader.mjs server/dist/index.js"
+
+[environment]
+PORT = "3100"
+SERVE_UI = "true"
+PAPERCLIP_DEPLOYMENT_MODE = "local_trusted"
+PAPERCLIP_DEPLOYMENT_EXPOSURE = "public"
+PAPERCLIP_PUBLIC_URL = "${PAPERCLIP_PUBLIC_URL}"
